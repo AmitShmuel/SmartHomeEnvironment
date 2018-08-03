@@ -2,17 +2,30 @@
 
 ## This application was created by Yoav Saroya & Amit Shmuel 
 
-Notes:
-	
-- Please try to run it at least 2-3 times. 
-- the read_user sometimes flies on initializing.
-	
-- We assumed that synchronizing the video and playing audio is not important to this exercise.
-	
-- We assumed that the resolution of the video is not important to this exercise.
-	
-- Please note that writing 5+ videos to kernel - decreases the performence.
-	
+## Cover Story
+
+### You write a video control for smart home environment.
+
+ 
+#### Exercise 1 – canapé (25%)
+Start with chapter 7 in the Linux kernel module programming guide and implement a  2 char device with IOCTL read and write.
+A user process can provide the kernel with content using one chardev and a second process can read content using the second char dev. 
+Use 10 strings  of 1000 bytes (char [10000][10]) as your cameras. 
+Support the read/write/lseek commands to read from the current tapes.
+Support IOCTLs to change tape and format tape,
+
+#### Exercise 2 – User code - backend  (25%)
+Use dranger guide to write a code that communicate with kernel module and sends data to the kernel… send data from one of up to 10 cameras (AVI files) that simulate digital home 
+
+#### Exercise 3 – User code - Frondend  (25%)
+Use dranger guide to write a code that communicate with kernel module and displays frame from current camera. Switch cameras using 1234567890 keys (use SDLK_1 etc.) this process does not need to send 
+
+#### Exercise 4 – add locking
+Add spin locks or rw locks.
+
+---
+
+Please note that writing 5+ videos to kernel decreases the performence.
 
 
 Compile + insert the devices:
@@ -28,7 +41,6 @@ Compile + insert the devices:
 - sudo mknod /dev/read_char_dev c 100 0
 	
 
-
 Clean + removing the devices:
 	Clean the project and any other cruft with 'make clean' command.
 	
@@ -40,7 +52,6 @@ Clean + removing the devices:
 	
 - sudo rm /dev/read_char_dev
 	
-
 
 How to run:
 	
@@ -56,8 +67,6 @@ How to run:
 ### PLEASE quit first read_user app and only then quit write_user app.
 	
 	
-
-
 How to use:
 
 	
